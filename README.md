@@ -1,5 +1,5 @@
-# Restaurant_Management_System
- IT Group Members:
+# Restaurant_Management_System  
+ IT Group Members:  
 -> Hrishubh Bhandari  
 -> Gurupal Singh  
 -> Hari Gopal  
