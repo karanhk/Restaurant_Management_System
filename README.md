@@ -1,7 +1,7 @@
 # Restaurant_Management_System  
  <h1>IT Group Members:  </h1>
--> Hrishubh Bhandari  
--> Gurupal Singh  
--> Hari Gopal  
--> Inderjeet Singh  
--> Karan Hadiyal  
+-> Hrishubh Bhandari  <br />  
+-> Gurupal Singh    <br />
+-> Hari Gopal  <br />
+-> Inderjeet Singh  <br />
+-> Karan Hadiyal  <br />
