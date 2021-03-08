@@ -1,5 +1,5 @@
 # Restaurant_Management_System  
- <h1>IT Group Members:  </h1>
+ <h2>IT Group Members:  </h2>
 -> Hrishubh Bhandari  <br />  
 -> Gurupal Singh    <br />
 -> Hari Gopal  <br />
