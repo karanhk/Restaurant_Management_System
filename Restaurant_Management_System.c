@@ -1,23 +1,119 @@
+//header files used
 #include<stdio.h>
 #include<stddef.h>
 #include<stdlib.h>
 
+//function prototypes
 void xBanner(void);
-void menu(void);
+void mainmenu(void);
+void front(void);
+void hashBanner(void);
+void menu();
 
+
+//starting main
 int main(void){
-    xBanner();
-    menu();
-    xBanner();\
 
-    char choices[22];
-    printf("%s\n", "Enter you choice: ");
+    //itemList
+    char itemList[22][13] = { "Indian Salad", "Mineral Water", "Papad", "Lassi", "French Fries",
+     "Onion Rings", "Choco Cake", "Choco Muffin", "Shahi Paneer", "Dal Makhni", "Alooo Dum", 
+     "Mix Veg", "Plain Roti", "Butter Roti", "Aloo Nan", "Missi Roti", "Red Bull", "Monstar", 
+     "Pepsi", "Maza", "Chocolate", "Butterscotch"};
+
+    //Price of Each Item from itemList
+    int priceOfItem[22] = { 30, 20, 15, 40, 60, 40, 60, 60, 150, 125, 150, 180, 25, 30, 35, 
+        35, 50, 50, 35, 30, 50, 35};
+
+    //1D arrays where updation will happen    
+    char orderItem[22];
+    int orderQuantity[22];
+       
+    //printing program's main menu
+    mainmenu();
 
 
+    //Choice for switch case
+    int choice;
+    printf("%s", "Enter your choice: ");
+    scanf("%d", &choice);
+
+    int itemCount;      //Used in case 2 for loop
+
+    //Exit only if choice == 5
+    while(choice != 6){
+        switch(choice){
+            case 1:     //SHOW MENU
+                menu();//Show restaurant's menu
+                hashBanner();
+                break;    
+            case 2:     //ADD ITEMS
+                printf("%s", "How many items you want to add to the list: ");
+                scanf("%d", &itemCount);
+
+                //using a for loop to add items and there quantities in respective arrays
+                for(size_t i = 0; i < itemCount; i++){
+                    printf("Enter item %d name:\t", i+1);
+                    fflush(stdin);
+                    scanf("%c", &orderItem[i]);
+                    printf("Enter item %d quantity: \t", i+1);
+                    fflush(stdin);
+                    scanf("%d", &orderQuantity[i]);
+                    
+                }
+
+                break;
+            case 3:     //UPDATE ITEMS
+                
+                break;
+            case 4:     //Remove Items
+                
+
+                break;
+            case 5:     //Print Bill
+                
+                break;
+            case 6:     //Exit
+                
+                break;
+            default:
+                printf("Press 1-6 only...");
+                break;                
+        }
+        if(choice !=6){
+            mainmenu();
+            printf("%s", "Enter your choice: ");
+            scanf("%d", &choice);
+        }
+    }
+
+    //ending code 
     system("pause");
     return 0;
 }
+//ending main
 
+
+
+
+//function definition for mainmenu()
+void mainmenu(void){
+    hashBanner();
+    printf("%s", "1. See Menu\n");
+    printf("%s", "2. Add Items\n");
+    printf("%s", "3. Update Items\n");
+    printf("%s", "4. Remove Items\n");
+    printf("%s", "5. Print Bill\n");
+    printf("%s", "6. Exit\n");
+    hashBanner();
+}
+
+//function definition for hashBanner()
+void hashBanner(void){
+    printf("***********************\n");
+    printf("***********************\n");
+}
+
+//function definition for xBanner()
 void xBanner(void){
         int row, column, numrows = 5, numcolumns = 17;
         
@@ -44,6 +140,7 @@ void xBanner(void){
     } 
 }
 
+//function definition for menu()
 void menu(void){
     puts("");
     printf("%40s\n", "WELCOME TO OUR RESTAURANT");
