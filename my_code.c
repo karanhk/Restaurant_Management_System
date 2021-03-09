@@ -53,7 +53,7 @@ void main()
                     break;
             default:printf("\nWrong choice entered Please enter the valid choice!!\n\n");            
         }
-    }while(choice!='d');
+    }while(choice!='!');
 }
 void display()
 {
