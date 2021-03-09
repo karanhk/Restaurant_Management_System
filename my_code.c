@@ -37,7 +37,7 @@ void main()
     do
     {
         display();
-        printf("\nEnter your choice here  : ");
+        printf("\nEnter your choice here (Enter '!' to exit) : ");
         scanf("%c", &choice);
         
         switch(choice)
@@ -50,6 +50,8 @@ void main()
                     break;
             case 'C':
             case 'c':dinner(dinnermenu);
+                    break;
+            case '!':printf("Exiting Code");
                     break;
             default:printf("\nWrong choice entered Please enter the valid choice!!\n\n");            
         }
