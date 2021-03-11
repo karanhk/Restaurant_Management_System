@@ -16,7 +16,6 @@ int price_all_items[22] = { 30, 20, 15, 40, 60, 40, 60, 60, 150, 125, 150, 180, 
 
 int order_items[22];        //items to be ordered
 int order_quan[22];         //quantity of ordered items
-int hot_fav[10];            //hot favourite items list
 int discount[22];           //discount for all items
 
 
@@ -24,7 +23,7 @@ int a = 0, i = 0;
 
 void design(void);         //for design
 void food_menu(void);      //for food menu
-void hot_fav_items(void);  //for hot favourite items
+void discount_items(void);       //for discount
 void order(void);          //for order
 void bill(void);           //for bill
 void modify(void);         //for edit
@@ -36,7 +35,8 @@ int main ()
 
     printf("\n\tFOOD MENU\n\n");        //showing menu part
     
-    hot_fav_items();
+    printf("\nNo   Item  Price  Discount  GST  Net Price\n");
+    
     
     for (i = 0; i < 22; i+=2)
     {
@@ -50,10 +50,10 @@ int main ()
             printf("\nMains\n");
         
         else if( i == 16 )
-            printf("\nDrinks");
+            printf("\nDrinks\n");
         
-        printf("%d. %10s  %d ", i + 1, all_items[i], price_all_items[i]);
-        printf("| %d. %10s  %d\n", i + 2, all_items[i+1], price_all_items[i+1]);
+       
+        printf("%d  %s  %d  %d  %d  %f\n", i + 1, all_items[i], price_all_items[i], 18, discount[i], price_all_items[i] + 0.18 * price_all_items[i] - discount[i] * price_all_items[i]/100);
         
     }
     
@@ -90,23 +90,24 @@ void design(void)           //for design
 }                  //function ends
 
 
-void hot_fav_items(void)
+
+void discount_items (void)
 {
-    int x = 1, freq_resp[22] = {0}, freq;
+    int x = 0;
     
-    for ( x = 1; x <= 250; x++)
+    for ( x = 0; x < 22; x++)
     {
-        srand(rand());              //to generate different value
-        freq = rand() % 22;     //generates values between 1 and 21 and stores it in freq
-        freq_resp[freq]++;      //freq response of each freq i.e. 52 for 1, 26 for 2, etc.
-    }
-    
-    
-    for ( x = 1; x < 21; x++)       //to arrange in ascending order
-    {
+        
+        if ( rand() % 2 == 1 )
+        {
+        srand(x);
+        discount[x] = rand() % 30;
+        }
         
     }
 }
+
+
 void order(void)
 {
     int num = 0, quan = 0;
@@ -131,8 +132,6 @@ void order(void)
         
     }
     
-    if ( num == -1)
-        exit(0);
     
     bill();
 }
@@ -143,14 +142,17 @@ void bill(void)
     
     for ( i = 0; i < a; i++)
     {
-        printf("%d\t%s\t%d\t%d\n", i+1, all_items[order_items[i]], order_quan[i], order_quan[i] * price_all_items[order_items[i]]);
+        printf("%d\t%s\t%d\t%d\n", i+1, all_items[order_items[i]], order_quan[i], price_all_items[order_items[i]] + price_all_items[order_items[i]] * 18 - discount[order_items[i]] * price_all_items[order_items[i]]);
     }
     
-    printf("\nPress 1 to edit quantity");
-    scanf("%d", &num);
+    printf("\nPress 0 to final this bill\nPress 1 to edit quantity\nPress -1 to cancel");
+    scanf("\n%d", &num);
     
     if ( num == 1)
         modify();
+    
+    else if (num == -1)
+        order();
 }
 
 void modify(void)
