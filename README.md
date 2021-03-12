@@ -15,7 +15,6 @@
 <h3>8 Arrays</h3>
     bf_rate[8][2], lunch_rate[8][2], dinner_rate[8][2], purchased[], quantities[], _gst[], _cgst[], _sgst[]
 
-    void repeatdinner(char dinnermenu[][100]);
 <h3>7 Display Functions</h3>
     void display();<br />
     void display_bfmenu();<br />
