@@ -12,7 +12,8 @@ int dinner_rate[8][2]={   {0,0},{1,65},{2,50},{3,70},{4,80},{5,65},{6,110},{7,50
 
 int purchased[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}   };
 
-int temp[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}  };
+int quantities[]={ 0,0,0,0,0,0,0,0 };
+
 
 void display();
 void bfast(char bfmenu[][100]);
@@ -79,6 +80,7 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
         printf("\nEnter the quantity::");
         scanf("%d",&quantity);
         purchased[c][1]= quantity*bf_rate[c][1]; 
+        quantities[c]=quantity;
         total+=purchased[c][ 1];
         printf("\nTotal Cost is %d\n\n",total);
         gst=total*0.12;
@@ -136,7 +138,8 @@ void display_bf_bill(char bfmenu[][100]) // Breakfast Bill
         if(purchased[i][1]!=0)
         {
             printf("\t\t%s\t\t",bfmenu[i]);
-            printf("%d\n",purchased[i][1]); /*purchased[i][1]);*/
+            printf("%d\t\t",purchased[i][1]); /*purchased[i][1]);*/
+            printf("%d\n", quantities[i]);
         }
     }
     printf("\t\tGST=Rs.%0.2f\n",gst);
@@ -160,6 +163,7 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
         printf("\nEnter the quantity::");
         scanf("%d",&quantity);
         purchased[c][1]= quantity*lunch_rate[c][1];
+        quantities[c]=quantity;
         total+=purchased[c][ 1];
         printf("\nTotal Cost is %d\n\n",total);
         gst=total*0.12;
@@ -219,6 +223,7 @@ void display_lunch_bill(char lunchmenu[][100]) // Lunch Bill
         {
             printf("\t\t %s \t\t",lunchmenu[i]);
             printf("%d\n",purchased[i][1]);
+            printf("%d\n", quantities[i]);
         }
     }
     printf("\t\tGST=Rs.%0.2f\n",gst);
@@ -242,6 +247,7 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
         printf("\nEnter the quantity::");
         scanf("%d",&quantity);
         purchased[c][1]= quantity*dinner_rate[c][1];
+        quantities[c]=quantity;
         total+=purchased[c][1];
         printf("\nTotal Cost is %d\n\n",total);
         gst=total*0.12;
@@ -303,6 +309,7 @@ void display_dinner_bill(char dinnermenu[][100]) //Dinner Bill
         {
             printf("\t\t %s \t\t",dinnermenu[i]);
             printf("%d\n",purchased[i][1]);
+            printf("%d\n", quantities[i]);
         }
 
     }
