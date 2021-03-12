@@ -9,33 +9,34 @@
 
 <h2>CODE EXPLANATION</h2>
 
-<h3>5 global variables</h3>
+<h3>6 Global Variables</h3>
     total, total_quant, gst, cgst, sgst, total_gst
 
-<h3>8 arrays</h3>
+<h3>8 Arrays</h3>
     bf_rate[8][2], lunch_rate[8][2], dinner_rate[8][2], purchased[], quantities[], _gst[], _cgst[], _sgst[]
 
-<h3>7 display functions</h3>
-    void display();
-    void display_bfmenu();
-    void display_bf_bill(char bfmenu[][100]);
-    void display_lunchmenu();
-    void display_lunch_bill(char lunchmenu[][100]);
-    void display_dinnermenu();
-    void display_dinner_bill(char dinnermenu[][100]);
-
-<h3>6 foodie functions</h3>
-    void bfast(char bfmenu[][100]);
-    void lunch( char lunchmenu[][100]);
-    void dinner(char dinnermenu[][100]);
-    void repeatbf(char bfmenu[][100]);
-    void repeatlunch(char lunchmenu[][100]);
     void repeatdinner(char dinnermenu[][100]);
+<h3>7 Display Functions</h3>
+    void display();<br />
+    void display_bfmenu();<br />
+    void display_bf_bill(char bfmenu[][100]);<br />
+    void display_lunchmenu();<br />
+    void display_lunch_bill(char lunchmenu[][100]);<br />
+    void display_dinnermenu();<br />
+    void display_dinner_bill(char dinnermenu[][100]);<br />
 
-<h3>local main scope variables</h3>
-    char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};
-    char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};
-    char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};
+<h3>6 Foodie Functions</h3>
+    void bfast(char bfmenu[][100]);<br />
+    void lunch( char lunchmenu[][100]);<br />
+    void dinner(char dinnermenu[][100]);<br />
+    void repeatbf(char bfmenu[][100]);<br />
+    void repeatlunch(char lunchmenu[][100]);<br />
+    void repeatdinner(char dinnermenu[][100]);<br />
+
+<h3>Local Main Scope Variables</h3>
+    char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};<br />
+    char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};<br />
+    char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};<br />
 
 <h3>How CODE executes ??</h3>
 	We have a choice variable //char choice//
@@ -44,7 +45,6 @@
 	We take that input as <a/A> or <b/B> or <c/c> in <choice> variable
 	We use a do while loop to display the banner till user doesn't enter <!>
 	In that do while loop we are taking this <choice> variable input actually
-
 	The we use a switch control statement as switch(choice)
 	If the case is <a/A> : then breakfast functions will execute
 	If the case is <b/B> : then lunch functions will execute
