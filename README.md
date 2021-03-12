@@ -6,15 +6,15 @@
 -> Inderjeet Singh  <br />
 -> Karan Hadiyal  <br />
 
-CODE EXPLANATION
+<h2>CODE EXPLANATION</h2>
 
-//5 global variables
+<h3>5 global variables</h3>
     total, total_quant, gst, cgst, sgst, total_gst
 
-//8 arrays
+<h3>8 arrays</h3>
     bf_rate[8][2], lunch_rate[8][2], dinner_rate[8][2], purchased[], quantities[], _gst[], _cgst[], _sgst[]
 
-//7 display functions
+<h3>7 display functions</h3>
     void display();
     void display_bfmenu();
     void display_bf_bill(char bfmenu[][100]);
@@ -23,7 +23,7 @@ CODE EXPLANATION
     void display_dinnermenu();
     void display_dinner_bill(char dinnermenu[][100]);
 
-//6 foodie functions
+<h3>6 foodie functions</h3>
     void bfast(char bfmenu[][100]);
     void lunch( char lunchmenu[][100]);
     void dinner(char dinnermenu[][100]);
@@ -31,12 +31,12 @@ CODE EXPLANATION
     void repeatlunch(char lunchmenu[][100]);
     void repeatdinner(char dinnermenu[][100]);
 
-//local main scope variables
+<h3>local main scope variables</h3>
     char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};
     char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};
     char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};
 
-//How CODE executes ??
+<h3>How CODE executes ??</h3>
 	We have a choice variable //char choice//
 	We display banner using <display()> function
 	Then depeneding on whether user wants to eat breakfast, lunch or dinner
