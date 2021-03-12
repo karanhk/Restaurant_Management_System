@@ -16,26 +16,26 @@
     bf_rate[8][2], lunch_rate[8][2], dinner_rate[8][2], purchased[], quantities[], _gst[], _cgst[], _sgst[]
 
 <h3>7 Display Functions</h3>
-    &emsp void display();<br />
-    &emsp void display_bfmenu();<br />
-    &emsp void display_bf_bill(char bfmenu[][100]);<br />
-    &emsp void display_lunchmenu();<br />
-    &emsp void display_lunch_bill(char lunchmenu[][100]);<br />
-    &emsp void display_dinnermenu();<br />
-    &emsp void display_dinner_bill(char dinnermenu[][100]);<br />
+      void display();<br />
+      void display_bfmenu();<br />
+      void display_bf_bill(char bfmenu[][100]);<br />
+      void display_lunchmenu();<br />
+      void display_lunch_bill(char lunchmenu[][100]);<br />
+      void display_dinnermenu();<br />
+      void display_dinner_bill(char dinnermenu[][100]);<br />
 
 <h3>6 Foodie Functions</h3>
-    &emsp void bfast(char bfmenu[][100]);<br />
-    &emsp void lunch( char lunchmenu[][100]);<br />
-    &emsp void dinner(char dinnermenu[][100]);<br />
-    &emsp void repeatbf(char bfmenu[][100]);<br />
-    &emsp void repeatlunch(char lunchmenu[][100]);<br />
-    &emsp void repeatdinner(char dinnermenu[][100]);<br />
+      void bfast(char bfmenu[][100]);<br />
+      void lunch( char lunchmenu[][100]);<br />
+      void dinner(char dinnermenu[][100]);<br />
+      void repeatbf(char bfmenu[][100]);<br />
+      void repeatlunch(char lunchmenu[][100]);<br />
+      void repeatdinner(char dinnermenu[][100]);<br />
 
 <h3>Local Main Scope Variables</h3>
-    &emsp char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};<br />
-    &emsp char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};<br />
-    &emsp char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};<br />
+      char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};<br />
+	  char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};<br />
+      char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};<br />
 
 <h3>How CODE executes ??</h3><!>
 	
