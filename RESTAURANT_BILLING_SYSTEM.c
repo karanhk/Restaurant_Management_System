@@ -2,6 +2,7 @@
 #include<stdlib.h>
 
 int total=0;
+int total_quant=0;
 float gst,cgst,sgst;
 
 int bf_rate[8][2]={  {0,0},{1,30},{2,35},{3,40},{4,20},{5,15},{6,20},{7,30}     };
@@ -14,6 +15,11 @@ int purchased[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}   };
 
 int quantities[]={ 0,0,0,0,0,0,0,0 };
 
+float _gst[]={ 0,0,0,0,0,0,0,0 };
+
+float _cgst[]={ 0,0,0,0,0,0,0,0 };
+
+float _sgst[]={ 0,0,0,0,0,0,0,0 };
 
 void display();
 void bfast(char bfmenu[][100]);
@@ -39,6 +45,7 @@ void main()
     {
         display();
         printf("\nEnter your choice here (Enter '!' to exit) : ");
+        fflush(stdin);
         scanf("%c", &choice);
         
         switch(choice)
@@ -74,6 +81,7 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
     int c;
     display_bfmenu();
     printf("\nEnter the code:: ");
+    fflush(stdin);
     scanf("%d", &c);
     if(c>=1&&c<=7)
     {
@@ -81,11 +89,13 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
         scanf("%d",&quantity);
         purchased[c][1]= quantity*bf_rate[c][1]; 
         quantities[c]=quantity;
+        total_quant+=quantity;
         total+=purchased[c][ 1];
-        printf("\nTotal Cost is %d\n\n",total);
-        gst=total*0.12;
-        cgst=gst/2;
-        sgst=cgst;
+        printf("\n The Total Cost is %d\n\n",total);
+        gst=purchased[c][1]*0.12;
+        _gst[c]=gst;
+        _cgst[c]=gst/2;
+        _sgst[c]=gst/2;
     }
     else
     {
@@ -107,47 +117,54 @@ void display_bfmenu()
     printf("\t\t   [5] Milk      -   Rs 15.00\n");
     printf("\t\t   [6] Tea       -   Rs 20.00\n");
     printf("\t\t   [7] Coffee    -   Rs 30.00\n");
+    printf("\nPlease enter your choices below:\n\n");
 }
 void repeatbf(char bfmenu[][100])
 {   
     int again = 0;
     printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : "); // Allows user to choose whether to check-out or buy anything else.
+    fflush(stdin);
     scanf("%d",&again);
     if (again == 1)
-            bfast(bfmenu);
-    else if (again == 2 )
     {
+            printf("\n");
+            bfast(bfmenu);
+    }
+    else if (again == 2 )
+    {   
+        printf("\n");
         display_bf_bill(bfmenu);
         exit(0);
     }
     else
     {
-        printf("\n\n\t\tSorry Invalid Choice Entered\n");
+        printf("\n\n\t\tSorry Invalid Choice Entered\n\n");
         repeatbf(bfmenu);
     }
 }
 void display_bf_bill(char bfmenu[][100]) // Breakfast Bill
 {
     int i;
-    printf("  +**********************************************************+          \n\n");
-    printf("                      APNA RESTAURANT                   \n");
-    printf("                    BILLING INFORMATION                \n");
-    printf("\t\t ITEMS\t\tPrice(in Rs.)\n");
+    printf("+######################################################################################+\n\n");
+    printf("                                  ## APNA RESTAURANT ##                  \n\n");
+    printf("                                 --BILLING INFORMATION--                \n\n");
+    printf("  |ITEMS            |PRICE(Rs.)   |QUANTITY       |GST            |CGST          |SGST\n");
+    printf("  -------------------------------------------------------------------------------------\n");
     for(i=1;i<=7;i++)
     {
         if(purchased[i][1]!=0)
         {
-            printf("\t\t%s\t\t",bfmenu[i]);
-            printf("%d\t\t",purchased[i][1]); /*purchased[i][1]);*/
-            printf("%d\n", quantities[i]);
+            printf("  |%-15s  ",bfmenu[i]);
+            printf("|%-5d\t  ",purchased[i][1]);
+            printf("|%-5d\t  ", quantities[i]);
+            printf("|%-5.2f\t  ", _gst[i]);
+            printf("|%-5.2f\t  ", _cgst[i]);
+            printf("|%-5.2f\n", _sgst[i]);
         }
-    }
-    printf("\t\tGST=Rs.%0.2f\n",gst);
-    printf("\t\tC-GST=Rs.%0.2f\n",cgst);
-    printf("\t\tS-GST=Rs.%0.2f\n",sgst);
-    printf("\t\tTotal=Rs.%d\n",total);
-    
-    printf("\n\n  +**********************************************************+          \n\n");
+
+    }    
+    printf("  -------------------------------------------------------------------------------------");
+    printf("\n\n+######################################################################################+\n\n");
 
 }
 void lunch(char lunchmenu[][100]) // Lunch Screen Menu
@@ -157,6 +174,7 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
     int c;
     display_lunchmenu();
     printf("\nEnter the code:: ");
+    fflush(stdin);
     scanf("%d", &c);
     if(c>=1&&c<=7)
     {
@@ -164,11 +182,13 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
         scanf("%d",&quantity);
         purchased[c][1]= quantity*lunch_rate[c][1];
         quantities[c]=quantity;
+        total_quant+=quantity;
         total+=purchased[c][ 1];
-        printf("\nTotal Cost is %d\n\n",total);
-        gst=total*0.12;
-        cgst=gst/2;
-        sgst=cgst;
+        printf("\nThe Total Cost is %d\n\n",total);
+        gst=purchased[c][1]*0.12;
+        _gst[c]=gst;
+        _cgst[c]=gst/2;
+        _sgst[c]=gst/2;
     }
     else
     {
@@ -190,17 +210,22 @@ void display_lunchmenu()
     printf("\t\t   [5] Paneer Tikka  -   Rs 150.00\n");
     printf("\t\t   [6] Veg Mix       -   Rs 160.00\n");
     printf("\t\t   [7] Ice cream     -   Rs 30.00\n");
-    printf("Enter your choice here : ");
+    printf("\nPlease enter your choices below:\n\n");
 }
 void repeatlunch(char lunchmenu[][100])
 {   
     int again=0;
     printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : "); // Allows user to choose whether to check-out or buy anything else.
+    fflush(stdin);
     scanf("%d",&again);
     if (again == 1)
-            lunch(lunchmenu);
-    else if (again == 2 )
     {
+            printf("\n");
+            lunch(lunchmenu);
+    }
+    else if (again == 2 )
+    {   
+        printf("\n");
         display_lunch_bill(lunchmenu);
         exit(0);
     }
@@ -213,25 +238,27 @@ void repeatlunch(char lunchmenu[][100])
 void display_lunch_bill(char lunchmenu[][100]) // Lunch Bill 
 {
     int i;
-    printf("  +**********************************************************+          \n\n");
-    printf("                      APNA RESTAURANT                   \n");
-    printf("                    BILLING INFORMATION                \n");
-    printf("\t\t ITEMS\t\t\tPrice(in Rs.)\n");
+    printf("+######################################################################################+\n\n");
+    printf("                                  ## APNA RESTAURANT ##                  \n\n");
+    printf("                                 --BILLING INFORMATION--                \n\n");
+    printf("  |ITEMS            |PRICE(Rs.)   |QUANTITY       |GST            |CGST          |SGST\n");
+    printf("  -------------------------------------------------------------------------------------\n");
     for(i=1;i<=7;i++)
     {
         if(purchased[i][1]!=0)
         {
-            printf("\t\t %s \t\t",lunchmenu[i]);
-            printf("%d\n",purchased[i][1]);
-            printf("%d\n", quantities[i]);
+            printf("  |%-15s  ",lunchmenu[i]);
+            printf("|%-5d\t  ",purchased[i][1]);
+            printf("|%-5d\t  ", quantities[i]);
+            printf("|%-5.2f\t  ", _gst[i]);
+            printf("|%-5.2f\t  ", _cgst[i]);
+            printf("|%-5.2f\n", _sgst[i]);
         }
-    }
-    printf("\t\tGST=Rs.%0.2f\n",gst);
-    printf("\t\tC-GST=Rs.%0.2f\n",cgst);
-    printf("\t\tS-GST=Rs.%0.2f\n",sgst);
-    printf("\t\tTotal=Rs.%d\n",total);
-    
-    printf("\n\n  +**********************************************************+          \n\n");
+
+    }    
+    printf("  -------------------------------------------------------------------------------------");
+    printf("\n\n+######################################################################################+\n\n");
+
 }
 void dinner(char dinnermenu[][100]) // Dinner Menu Screen
 {
@@ -241,6 +268,7 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
     display_dinnermenu();
 
     printf("\nEnter the code:: ");
+    fflush(stdin);
     scanf("%d", &c);
     if(c>=1 && c<=7)
     {
@@ -248,11 +276,13 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
         scanf("%d",&quantity);
         purchased[c][1]= quantity*dinner_rate[c][1];
         quantities[c]=quantity;
+        total_quant+=quantity;
         total+=purchased[c][1];
-        printf("\nTotal Cost is %d\n\n",total);
-        gst=total*0.12;
-        cgst=gst/2;
-        sgst=cgst;
+        printf("\nThe Total Cost is %d\n\n",total);
+        gst=purchased[c][1]*0.12;
+        _gst[c]=gst;
+        _cgst[c]=gst/2;
+        _sgst[c]=gst/2;
     }
     else
     {
@@ -274,19 +304,22 @@ void display_dinnermenu()
     printf("\t\t   [5] Noodles      -   Rs 65.00\n");
     printf("\t\t   [6] Parantha     -   Rs 110.00\n");
     printf("\t\t   [7] Fruit Salad  -   Rs 50.00\n");
-        printf("Enter your choice here : ");
+    printf("\nPlease enter your choices below:\n\n");
 }
 void repeatdinner(char dinnermenu[][100])
 {
     int again=0;
     printf("\nWould you like to buy anything else?\n[1] Yes , [2] No : "); // Allows user to choose whether to check-out or buy anything else.
+    fflush(stdin);
     scanf("%d",&again);
     if (again == 1)
     {
+        printf("\n");
         dinner(dinnermenu);
     }
     else if (again == 2 )
-    {
+    {   
+        printf("\n");
         display_dinner_bill(dinnermenu);
         exit(0);
     }
@@ -299,24 +332,25 @@ void repeatdinner(char dinnermenu[][100])
 void display_dinner_bill(char dinnermenu[][100]) //Dinner Bill
 {
     int i;
-    printf("  +**********************************************************+          \n\n");
-    printf("                      APNA RESTAURANT                   \n");
-    printf("                    BILLING INFORMATION                \n");
-    printf("\t\t ITEMS\t\t\tPrice(in Rs.)\n");
+    printf("+######################################################################################+\n\n");
+    printf("                                  ## APNA RESTAURANT ##                  \n\n");
+    printf("                                 --BILLING INFORMATION--                \n\n");
+    printf("  |ITEMS            |PRICE(Rs.)   |QUANTITY       |GST            |CGST          |SGST\n");
+    printf("  -------------------------------------------------------------------------------------\n");
     for(i=1;i<=7;i++)
     {
         if(purchased[i][1]!=0)
         {
-            printf("\t\t %s \t\t",dinnermenu[i]);
-            printf("%d\n",purchased[i][1]);
-            printf("%d\n", quantities[i]);
+            printf("  |%-15s  ",dinnermenu[i]);
+            printf("|%-5d\t  ",purchased[i][1]);
+            printf("|%-5d\t  ", quantities[i]);
+            printf("|%-5.2f\t  ", _gst[i]);
+            printf("|%-5.2f\t  ", _cgst[i]);
+            printf("|%-5.2f\n", _sgst[i]);
         }
 
-    }
-    printf("\t\tGST=Rs.%0.2f\n",gst);
-    printf("\t\tC-GST=Rs.%0.2f\n",cgst);
-    printf("\t\tS-GST=Rs.%0.2f\n",sgst);
-    printf("\t\tTotal=Rs.%d\n\n",total);
-    
-    printf("\n\n  +**********************************************************+          \n\n");
+    }    
+    printf("  -------------------------------------------------------------------------------------");
+    printf("\n\n+######################################################################################+\n\n");
+
 }
