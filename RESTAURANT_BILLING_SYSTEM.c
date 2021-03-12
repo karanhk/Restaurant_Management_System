@@ -11,7 +11,7 @@ int lunch_rate[8][2]={   {0,0},{1,80},{2,120},{3,20},{4,120},{5,150},{6,160},{7,
 
 int dinner_rate[8][2]={   {0,0},{1,65},{2,50},{3,70},{4,80},{5,65},{6,110},{7,50}    };
 
-int purchased[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}   };
+int purchased[]={  0,0,0,0,0,0,0,0   };
 
 int quantities[]={ 0,0,0,0,0,0,0,0 };
 
@@ -87,12 +87,12 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
     {
         printf("\nEnter the quantity::");
         scanf("%d",&quantity);
-        purchased[c][1]= quantity*bf_rate[c][1]; 
+        purchased[c]= quantity*bf_rate[c][1]; 
         quantities[c]=quantity;
         total_quant+=quantity;
-        total+=purchased[c][ 1];
+        total+=purchased[c];
         printf("\n The Total Cost is %d\n\n",total);
-        gst=purchased[c][1]*0.12;
+        gst=purchased[c]*0.12;
         _gst[c]=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
@@ -152,10 +152,10 @@ void display_bf_bill(char bfmenu[][100]) // Breakfast Bill
     printf("  -------------------------------------------------------------------------------------\n");
     for(i=1;i<=7;i++)
     {
-        if(purchased[i][1]!=0)
+        if(purchased[i]!=0)
         {
             printf("  |%-15s  ",bfmenu[i]);
-            printf("|%-5d\t  ",purchased[i][1]);
+            printf("|%-5d\t  ",purchased[i]);
             printf("|%-5d\t  ", quantities[i]);
             printf("|%-5.2f\t  ", _gst[i]);
             printf("|%-5.2f\t  ", _cgst[i]);
@@ -180,12 +180,12 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
     {
         printf("\nEnter the quantity::");
         scanf("%d",&quantity);
-        purchased[c][1]= quantity*lunch_rate[c][1];
+        purchased[c]= quantity*lunch_rate[c][1];
         quantities[c]=quantity;
         total_quant+=quantity;
-        total+=purchased[c][ 1];
+        total+=purchased[c];
         printf("\nThe Total Cost is %d\n\n",total);
-        gst=purchased[c][1]*0.12;
+        gst=purchased[c]*0.12;
         _gst[c]=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
@@ -245,10 +245,10 @@ void display_lunch_bill(char lunchmenu[][100]) // Lunch Bill
     printf("  -------------------------------------------------------------------------------------\n");
     for(i=1;i<=7;i++)
     {
-        if(purchased[i][1]!=0)
+        if(purchased[i]!=0)
         {
             printf("  |%-15s  ",lunchmenu[i]);
-            printf("|%-5d\t  ",purchased[i][1]);
+            printf("|%-5d\t  ",purchased[i]);
             printf("|%-5d\t  ", quantities[i]);
             printf("|%-5.2f\t  ", _gst[i]);
             printf("|%-5.2f\t  ", _cgst[i]);
@@ -274,12 +274,12 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
     {
         printf("\nEnter the quantity::");
         scanf("%d",&quantity);
-        purchased[c][1]= quantity*dinner_rate[c][1];
+        purchased[c]= quantity*dinner_rate[c][1];
         quantities[c]=quantity;
         total_quant+=quantity;
-        total+=purchased[c][1];
+        total+=purchased[c];
         printf("\nThe Total Cost is %d\n\n",total);
-        gst=purchased[c][1]*0.12;
+        gst=purchased[c]*0.12;
         _gst[c]=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
@@ -339,10 +339,10 @@ void display_dinner_bill(char dinnermenu[][100]) //Dinner Bill
     printf("  -------------------------------------------------------------------------------------\n");
     for(i=1;i<=7;i++)
     {
-        if(purchased[i][1]!=0)
+        if(purchased[i]!=0)
         {
             printf("  |%-15s  ",dinnermenu[i]);
-            printf("|%-5d\t  ",purchased[i][1]);
+            printf("|%-5d\t  ",purchased[i]);
             printf("|%-5d\t  ", quantities[i]);
             printf("|%-5.2f\t  ", _gst[i]);
             printf("|%-5.2f\t  ", _cgst[i]);
