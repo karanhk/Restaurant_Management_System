@@ -1,4 +1,4 @@
-# Restaurant_Management_System  
+# Restaurant_Management_System ( Group 5)  
  <h2>IT Group Members:  </h2>
 <ul>
 <li>Hrishubh Bhandari (202011026)</li>  <br />  
