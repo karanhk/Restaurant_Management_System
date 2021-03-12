@@ -64,6 +64,7 @@ void main()
             default:printf("\nWrong choice entered Please enter the valid choice!!\n\n");            
         }
     }while(choice!='!');
+    exit(0);
 }
 void display()
 {
@@ -80,7 +81,7 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
     int quantity = -1;
     int c;
     display_bfmenu();
-    printf("\nEnter the code:: ");
+    printf("\nEnter the code (Enter 0 to go back):: ");
     fflush(stdin);
     scanf("%d", &c);
     if(c>=1&&c<=7)
@@ -97,6 +98,12 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
     }
+    else if (c==0)
+    {   
+        printf("\n");
+        main();
+    }
+    
     else
     {
         printf("\nInvalid code entered, Please enter the code again!!!!\n\n");
@@ -165,7 +172,7 @@ void display_bf_bill(char bfmenu[][100]) // Breakfast Bill
     }    
     printf("  -------------------------------------------------------------------------------------");
     printf("\n\n+######################################################################################+\n\n");
-
+    exit(0);
 }
 void lunch(char lunchmenu[][100]) // Lunch Screen Menu
 {
@@ -178,7 +185,7 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
     scanf("%d", &c);
     if(c>=1&&c<=7)
     {
-        printf("\nEnter the quantity::");
+        printf("\nEnter the quantity (Enter 0 to go back)::");
         scanf("%d",&quantity);
         purchased[c]= quantity*lunch_rate[c][1];
         quantities[c]=quantity;
@@ -189,6 +196,11 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
         _gst[c]=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
+    }
+    else if (c==0)
+    {   
+        printf("\n");
+        main();
     }
     else
     {
@@ -258,7 +270,7 @@ void display_lunch_bill(char lunchmenu[][100]) // Lunch Bill
     }    
     printf("  -------------------------------------------------------------------------------------");
     printf("\n\n+######################################################################################+\n\n");
-
+    exit(0);
 }
 void dinner(char dinnermenu[][100]) // Dinner Menu Screen
 {
@@ -272,7 +284,7 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
     scanf("%d", &c);
     if(c>=1 && c<=7)
     {
-        printf("\nEnter the quantity::");
+        printf("\nEnter the quantity (Enter 0 to go back)::");
         scanf("%d",&quantity);
         purchased[c]= quantity*dinner_rate[c][1];
         quantities[c]=quantity;
@@ -283,6 +295,11 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
         _gst[c]=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
+    }
+    else if (c==0)
+    {   
+        printf("\n");
+        main();
     }
     else
     {
@@ -352,5 +369,5 @@ void display_dinner_bill(char dinnermenu[][100]) //Dinner Bill
     }    
     printf("  -------------------------------------------------------------------------------------");
     printf("\n\n+######################################################################################+\n\n");
-
+    exit(0);
 }
