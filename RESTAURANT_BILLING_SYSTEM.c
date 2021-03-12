@@ -12,7 +12,7 @@ int dinner_rate[8][2]={   {0,0},{1,65},{2,50},{3,70},{4,80},{5,65},{6,110},{7,50
 
 int purchased[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}   };
 
-int temp[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},  };
+int temp[][2]={  {0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}  };
 
 void display();
 void bfast(char bfmenu[][100]);
@@ -70,7 +70,7 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
 {
     //local variables
     int quantity = -1;
-    int c,i;
+    int c;
     display_bfmenu();
     printf("\nEnter the code:: ");
     scanf("%d", &c);
@@ -151,7 +151,7 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
 {
     //local variables
     int quantity = -1;
-    int c,i;
+    int c;
     display_lunchmenu();
     printf("\nEnter the code:: ");
     scanf("%d", &c);
@@ -232,7 +232,7 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
 {
     //local variables
     int quantity = 0;
-    int c,i;
+    int c;
     display_dinnermenu();
 
     printf("\nEnter the code:: ");

@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "Customer Biling System.C": "cpp"
+        "Customer Biling System.C": "cpp",
+        "stdlib.h": "c"
     }
 }
