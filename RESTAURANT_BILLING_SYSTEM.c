@@ -28,6 +28,7 @@ void dinner(char dinnermenu[][100]);
 void display_dinnermenu();
 void repeatdinner(char dinnermenu[][100]);
 void display_dinner_bill(char dinnermenu[][100]);
+//void cancel(int purchased[][2]);
 
 void main()
 {
@@ -39,6 +40,7 @@ void main()
     {
         display();
         printf("\nEnter your choice here (Enter '!' to exit) : ");
+        fflush(stdin);
         scanf("%c", &choice);
         
         switch(choice)
@@ -74,6 +76,7 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
     int c;
     display_bfmenu();
     printf("\nEnter the code:: ");
+    fflush(stdin);
     scanf("%d", &c);
     if(c>=1&&c<=7)
     {
@@ -157,6 +160,7 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
     int c;
     display_lunchmenu();
     printf("\nEnter the code:: ");
+    fflush(stdin);
     scanf("%d", &c);
     if(c>=1&&c<=7)
     {
@@ -241,6 +245,7 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
     display_dinnermenu();
 
     printf("\nEnter the code:: ");
+    fflush(stdin);
     scanf("%d", &c);
     if(c>=1 && c<=7)
     {
@@ -320,3 +325,7 @@ void display_dinner_bill(char dinnermenu[][100]) //Dinner Bill
     
     printf("\n\n  +**********************************************************+          \n\n");
 }
+/*void cancel(int purchased[][2],int c)
+{
+    purchased[c][1]=-1;
+}*/
