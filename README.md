@@ -16,33 +16,33 @@
     bf_rate[8][2], lunch_rate[8][2], dinner_rate[8][2], purchased[], quantities[], _gst[], _cgst[], _sgst[]
 
 <h3>7 Display Functions</h3>
-    void display();<br />
-    void display_bfmenu();<br />
-    void display_bf_bill(char bfmenu[][100]);<br />
-    void display_lunchmenu();<br />
-    void display_lunch_bill(char lunchmenu[][100]);<br />
-    void display_dinnermenu();<br />
-    void display_dinner_bill(char dinnermenu[][100]);<br />
+    &emsp void display();<br />
+    &emsp void display_bfmenu();<br />
+    &emsp void display_bf_bill(char bfmenu[][100]);<br />
+    &emsp void display_lunchmenu();<br />
+    &emsp void display_lunch_bill(char lunchmenu[][100]);<br />
+    &emsp void display_dinnermenu();<br />
+    &emsp void display_dinner_bill(char dinnermenu[][100]);<br />
 
 <h3>6 Foodie Functions</h3>
-    void bfast(char bfmenu[][100]);<br />
-    void lunch( char lunchmenu[][100]);<br />
-    void dinner(char dinnermenu[][100]);<br />
-    void repeatbf(char bfmenu[][100]);<br />
-    void repeatlunch(char lunchmenu[][100]);<br />
-    void repeatdinner(char dinnermenu[][100]);<br />
+    &emsp void bfast(char bfmenu[][100]);<br />
+    &emsp void lunch( char lunchmenu[][100]);<br />
+    &emsp void dinner(char dinnermenu[][100]);<br />
+    &emsp void repeatbf(char bfmenu[][100]);<br />
+    &emsp void repeatlunch(char lunchmenu[][100]);<br />
+    &emsp void repeatdinner(char dinnermenu[][100]);<br />
 
 <h3>Local Main Scope Variables</h3>
-    char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};<br />
-    char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};<br />
-    char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};<br />
+    &emsp char bfmenu[][100]={"","Toast","Parantha","Dosa","Upma","Milk","Tea","Coffee"};<br />
+    &emsp char lunchmenu[][100]={"","Veg Biryani","Special meal","Roti","Dal","Paneer Tikka","Veg mix","Icecream"};<br />
+    &emsp char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};<br />
 
-<h3>How CODE executes ??</h3>
+<h3>How CODE executes ??</h3><!>
 	We have a choice variable //char choice//
 	We display banner using <display()> function
 	Then depeneding on whether user wants to eat breakfast, lunch or dinner
 	We take that input as <a/A> or <b/B> or <c/c> in <choice> variable
-	We use a do while loop to display the banner till user doesn't enter <!>
+	We use a do while loop to display the banner till user doesn't enter 
 	In that do while loop we are taking this <choice> variable input actually
 	The we use a switch control statement as switch(choice)
 	If the case is <a/A> : then breakfast functions will execute
