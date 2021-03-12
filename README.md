@@ -43,6 +43,7 @@
 	Then depeneding on whether user wants to eat breakfast, lunch or dinner
 	We take that input as <a/A> or <b/B> or <c/c> in <choice> variable
 	We use a do while loop to display the banner till user doesn't enter 
+	
 	In that do while loop we are taking this <choice> variable input actually
 	The we use a switch control statement as switch(choice)
 	If the case is <a/A> : then breakfast functions will execute
