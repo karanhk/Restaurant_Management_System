@@ -39,6 +39,7 @@
 
 <h3>How CODE executes ??</h3><!>
 	We have a choice variable //char choice//
+	
 	We display banner using <display()> function
 	Then depeneding on whether user wants to eat breakfast, lunch or dinner
 	We take that input as <a/A> or <b/B> or <c/c> in <choice> variable
