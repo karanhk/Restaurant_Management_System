@@ -38,6 +38,7 @@
     &emsp char dinnermenu[][100]={"","Fried rice","Spaghetti","Burger","Pasta","Noodles","Parantha","Fruit Salad"};<br />
 
 <h3>How CODE executes ??</h3><!>
+	
 	We have a choice variable //char choice//
 	
 	We display banner using <display()> function
