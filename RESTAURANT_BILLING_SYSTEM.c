@@ -3,6 +3,7 @@
 
 int total=0;
 int total_quant=0;
+float total_gst=0;
 float gst,cgst,sgst;
 
 int bf_rate[8][2]={  {0,0},{1,30},{2,35},{3,40},{4,20},{5,15},{6,20},{7,30}     };
@@ -95,6 +96,7 @@ void bfast(char bfmenu[][100]) //Breakfast Menu Screen
         printf("\n The Total Cost is %d\n\n",total);
         gst=purchased[c]*0.12;
         _gst[c]=gst;
+        total_gst+=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
     }
@@ -170,7 +172,9 @@ void display_bf_bill(char bfmenu[][100]) // Breakfast Bill
         }
 
     }    
-    printf("  -------------------------------------------------------------------------------------");
+    printf("  -------------------------------------------------------------------------------------\n");
+    printf("  |TOTAL PRICE (Cost + GST) -> %.2f                                                     \n",total+total_gst);
+    printf("  -------------------------------------------------------------------------------------\n");
     printf("\n\n+######################################################################################+\n\n");
     exit(0);
 }
@@ -194,6 +198,7 @@ void lunch(char lunchmenu[][100]) // Lunch Screen Menu
         printf("\nThe Total Cost is %d\n\n",total);
         gst=purchased[c]*0.12;
         _gst[c]=gst;
+        total_gst+=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
     }
@@ -268,7 +273,9 @@ void display_lunch_bill(char lunchmenu[][100]) // Lunch Bill
         }
 
     }    
-    printf("  -------------------------------------------------------------------------------------");
+    printf("  -------------------------------------------------------------------------------------\n");
+    printf("  |TOTAL PRICE (Cost + GST) -> %.2f                                                     \n",total+total_gst);
+    printf("  -------------------------------------------------------------------------------------\n");
     printf("\n\n+######################################################################################+\n\n");
     exit(0);
 }
@@ -293,6 +300,7 @@ void dinner(char dinnermenu[][100]) // Dinner Menu Screen
         printf("\nThe Total Cost is %d\n\n",total);
         gst=purchased[c]*0.12;
         _gst[c]=gst;
+        total_gst+=gst;
         _cgst[c]=gst/2;
         _sgst[c]=gst/2;
     }
@@ -367,7 +375,9 @@ void display_dinner_bill(char dinnermenu[][100]) //Dinner Bill
         }
 
     }    
-    printf("  -------------------------------------------------------------------------------------");
+    printf("  -------------------------------------------------------------------------------------\n");
+    printf("  |TOTAL PRICE (Cost + GST) -> %.2f                                                     \n",total+total_gst);
+    printf("  -------------------------------------------------------------------------------------\n");
     printf("\n\n+######################################################################################+\n\n");
     exit(0);
 }
